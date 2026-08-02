@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LetsG Trading Community — Waitlist</title>
+</head>
+<body>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <img src="letsg-logo.png" alt="LetsG Trading — From Vision to Reality" class="brand-logo">
+    <span class="eyebrow">Coming Soon · Community Waitlist</span>
+    <h1>A small trading community for people serious about growing together.</h1>
+    <p class="lede">LetsG Trading is opening a private community for both new and experienced traders. We're keeping it small on purpose, so every member gets real attention. Join the waitlist and we'll let you know the moment we open.</p>
+    <a href="#waitlist-form" class="btn-primary" id="cta-scroll">
+      Join the waitlist
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    </a>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <h2>What to expect</h2>
+    <div class="cards">
+      <div class="card">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h3>Built for every level</h3>
+        <p>Whether you're just starting out or already trading actively, the community is designed to help you learn and grow at your own pace.</p>
+      </div>
+      <div class="card">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/></svg>
+        <h3>Small, by design</h3>
+        <p>We're intentionally keeping this community small, so discussions stay meaningful and everyone gets real support — not lost in a massive group.</p>
+      </div>
+      <div class="card">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h3>Early access when we launch</h3>
+        <p>Waitlist members hear from us first, with priority given to those who joined earliest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="waitlist-form">
+  <div class="wrap wrap-narrow">
+
+    <div class="panel" id="panel-form">
+      <h2>Reserve your spot</h2>
+      <p class="panel-sub">Tell us a bit about yourself, and we'll reach out personally once the community opens.</p>
+
+      <form id="waitlist" novalidate method="POST" action="REPLACE_WITH_APPS_SCRIPT_URL" target="hidden-target">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+          <span class="error-msg" data-for="name"></span>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+          <span class="error-msg" data-for="email"></span>
+        </div>
+        <div class="field">
+          <label for="facebook">Facebook profile link</label>
+          <input type="text" id="facebook" name="facebook" placeholder="https://facebook.com/yourname" autocomplete="url" required>
+          <span class="error-msg" data-for="facebook"></span>
+        </div>
+        <div class="field">
+          <label for="experience">Trading experience</label>
+          <select id="experience" name="experience" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="New to trading">New to trading</option>
+            <option value="Experienced">Experienced</option>
+          </select>
+          <span class="error-msg" data-for="experience"></span>
+        </div>
+
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+
+        <button type="submit" class="btn-primary" id="submit-btn">
+          <span class="btn-label">Join the waitlist</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+
+    <iframe name="hidden-target" id="hidden-target" style="display:none;" title="submission target" aria-hidden="true"></iframe>
+
+  </div>
+</section>
+
+<div class="modal-backdrop" id="thankyou-modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button type="button" class="modal-close" id="modal-close" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="confirm-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    </div>
+    <h2 id="modal-title">Thank you!</h2>
+    <p id="modal-detail" class="panel-sub">You're on the list. We'll reach out once LetsG Trading is ready to welcome new members.</p>
+    <button type="button" class="btn-primary" id="modal-ok">Got it</button>
+  </div>
+</div>
+
+<section class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <span class="wordmark">LetsG Trading</span>
+      <span class="footer-note">From Vision to Reality · Community Waitlist</span>
+    </div>
+    <p class="disclaimer">LetsG Trading Community is intended for education and networking among traders. Trading involves risk, and nothing shared in this community should be considered financial advice.</p>
+  </div>
+</section>
+
+<style>
+:root{
+  --color-bg: #FFFFFF;
+  --color-panel: #FFFFFF;
+  --color-ink: #10152A;
+  --color-ink-soft: #5B6478;
+  --color-line: #E9EAEF;
+  --color-navy: #14357A;
+  --color-blue: #2165E8;
+  --color-gold: #D2AB54;
+  --color-blue-soft: #EEF3FC;
+  --color-section-alt: #FAFAFC;
+  --color-error: #C1442A;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --shadow-soft: 0 1px 2px rgba(16,21,42,0.04), 0 8px 24px rgba(16,21,42,0.06);
+  --ease: cubic-bezier(.2,.7,.2,1);
+}
+
+/* Fixed white theme — intentionally no dark mode override */
+
+*{ box-sizing: border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3{ margin:0; font-weight: 700; letter-spacing: -0.02em; color: var(--color-ink); }
+p{ margin:0; }
+svg{ display:inline-block; vertical-align:-0.15em; }
+
+.wrap{ max-width: 960px; margin: 0 auto; padding: 0 24px; }
+.wrap-narrow{ max-width: 560px; }
+
+section{ padding: 80px 0; }
+.hero{ padding-top: 60px; padding-bottom: 88px; text-align:center; }
+.hero .wrap{ display:flex; flex-direction:column; align-items:center; }
+
+.brand-logo{
+  width: clamp(220px, 34vw, 320px);
+  height: auto;
+  margin-bottom: 28px;
+}
+
+.eyebrow{
+  display:inline-block;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  background: var(--color-blue-soft);
+  padding: 7px 16px;
+  border-radius: 100px;
+  margin-bottom: 22px;
+}
+
+h1{
+  font-size: clamp(28px, 4.6vw, 42px);
+  line-height: 1.18;
+  max-width: 18ch;
+}
+
+.lede{
+  margin-top: 18px;
+  font-size: 17px;
+  color: var(--color-ink-soft);
+  max-width: 48ch;
+}
+
+.btn-primary{
+  margin-top: 30px;
+  display: inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  background: var(--color-blue);
+  color: #FFFFFF;
+  border:none;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: var(--radius-sm);
+  cursor:pointer;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), opacity 0.2s var(--ease), background 0.2s var(--ease);
+  box-shadow: var(--shadow-soft);
+}
+.btn-primary:hover{ transform: translateY(-1px); background: var(--color-navy); }
+.btn-primary:active{ transform: translateY(0px); }
+.btn-primary:disabled{ opacity: 0.6; cursor: default; transform:none; }
+
+.why{ background: var(--color-section-alt); border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
+.why h2{ font-size: 24px; margin-bottom: 36px; text-align:center; }
+
+.cards{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+@media (min-width: 720px){
+  .cards{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.card{
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 24px 22px;
+}
+.card svg{ color: var(--color-blue); margin-bottom: 14px; display:block; }
+.card h3{ font-size: 16px; margin-bottom: 8px; }
+.card p{ font-size: 14px; color: var(--color-ink-soft); }
+
+.form-section h2{ font-size: 24px; }
+.panel-sub{
+  margin-top: 8px;
+  color: var(--color-ink-soft);
+  font-size: 14.5px;
+}
+
+.panel{
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 34px;
+  box-shadow: var(--shadow-soft);
+}
+
+form{ margin-top: 24px; display:flex; flex-direction:column; gap:16px; }
+.field{ display:flex; flex-direction:column; gap:6px; text-align:left; }
+label{ font-size: 12.5px; font-weight:600; color: var(--color-ink-soft); }
+input, select{
+  font-family: inherit;
+  font-size: 15px;
+  padding: 11px 13px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-line);
+  background: var(--color-section-alt);
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 0.15s var(--ease);
+  width: 100%;
+}
+select{ appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235B6478' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center; padding-right: 36px; }
+input:focus, select:focus{ border-color: var(--color-blue); }
+input.invalid, select.invalid{ border-color: var(--color-error); }
+.error-msg{ font-size: 12px; color: var(--color-error); min-height: 1px; }
+.form-error{
+  font-size: 13.5px;
+  color: var(--color-error);
+  background: rgba(193,68,42,0.08);
+  border: 1px solid rgba(193,68,42,0.25);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.confirm-icon{
+  width: 46px; height:46px;
+  border-radius: 100px;
+  background: var(--color-blue);
+  color: #FFFFFF;
+  display:flex; align-items:center; justify-content:center;
+  margin: 0 auto 16px;
+}
+
+.modal-backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(16,21,42,0.55);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 20px;
+  z-index: 1000;
+}
+[hidden]{ display:none !important; }
+.modal-card{
+  background: var(--color-panel);
+  border-radius: var(--radius);
+  padding: 38px 30px 30px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  box-shadow: var(--shadow-soft);
+  animation: modal-in 0.25s var(--ease);
+}
+@keyframes modal-in{
+  from{ opacity:0; transform: translateY(8px) scale(0.98); }
+  to{ opacity:1; transform: none; }
+}
+.modal-close{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  border: none;
+  background: var(--color-blue-soft);
+  color: var(--color-navy);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor: pointer;
+}
+.modal-card h2{ font-size: 21px; }
+.modal-card .btn-primary{ margin-top: 20px; width: auto; }
+@media (prefers-reduced-motion: reduce){
+  .modal-card{ animation:none; }
+}
+
+.footer{ padding: 44px 0; }
+.footer-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.wordmark{ font-weight:700; letter-spacing: -0.01em; font-size: 15px; color: var(--color-navy); }
+.footer-note{ font-size: 13px; color: var(--color-ink-soft); }
+.disclaimer{
+  font-size: 12px;
+  color: var(--color-ink-soft);
+  border-top: 1px solid var(--color-line);
+  padding-top: 16px;
+  max-width: 70ch;
+}
+
+button, input, select{ width:100%; }
+@media (min-width: 640px){
+  .btn-primary{ width:auto; }
+}
+</style>
+
+<script>
+(function(){
+  document.getElementById('cta-scroll').addEventListener('click', function(e){
+    e.preventDefault();
+    document.getElementById('waitlist-form').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  var form = document.getElementById('waitlist');
+  var submitBtn = document.getElementById('submit-btn');
+  var formError = document.getElementById('form-error');
+  var modal = document.getElementById('thankyou-modal');
+  var modalTitle = document.getElementById('modal-title');
+  var modalDetail = document.getElementById('modal-detail');
+  var hiddenFrame = document.getElementById('hidden-target');
+  var pendingSubmission = false;
+  var pendingValues = null;
+
+  function openModal(){ modal.hidden = false; }
+  function closeModal(){ modal.hidden = true; }
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  document.getElementById('modal-ok').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !modal.hidden) closeModal(); });
+
+  function setFieldError(id, message){
+    var input = document.getElementById(id);
+    var msg = document.querySelector('.error-msg[data-for="' + id + '"]');
+    if(message){
+      input.classList.add('invalid');
+      msg.textContent = message;
+    } else {
+      input.classList.remove('invalid');
+      msg.textContent = '';
+    }
+  }
+
+  function validate(name, email, facebook, experience){
+    var ok = true;
+    if(!name){ setFieldError('name', 'Please enter your name.'); ok = false; } else { setFieldError('name', ''); }
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if(!emailOk){ setFieldError('email', 'Enter a valid email address.'); ok = false; } else { setFieldError('email', ''); }
+    if(!facebook){ setFieldError('facebook', 'Please share your Facebook profile link.'); ok = false; } else { setFieldError('facebook', ''); }
+    if(!experience){ setFieldError('experience', 'Please select one.'); ok = false; } else { setFieldError('experience', ''); }
+    return ok;
+  }
+
+  form.addEventListener('submit', function(e){
+    formError.hidden = true;
+
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var facebook = document.getElementById('facebook').value.trim();
+    var experience = document.getElementById('experience').value;
+
+    if(!validate(name, email, facebook, experience)){
+      e.preventDefault();
+      return;
+    }
+
+    // Valid — let the browser submit natively into the hidden iframe (no CORS issues).
+    pendingSubmission = true;
+    pendingValues = { name: name, email: email };
+    submitBtn.disabled = true;
+    submitBtn.querySelector('.btn-label').textContent = 'Joining…';
+  });
+
+  hiddenFrame.addEventListener('load', function(){
+    if(!pendingSubmission) return;
+    pendingSubmission = false;
+
+    modalTitle.textContent = "Thank you, " + pendingValues.name.split(' ')[0] + "!";
+    modalDetail.textContent = "You're on the list. We'll reach out at " + pendingValues.email + " once LetsG Trading is ready to welcome new members.";
+    openModal();
+    form.reset();
+    submitBtn.disabled = false;
+    submitBtn.querySelector('.btn-label').textContent = 'Join the waitlist';
+  });
+})();
+</script>
+
+</body>
+</html>
