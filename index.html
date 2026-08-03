@@ -18,6 +18,10 @@
 </head>
 <body>
 
+<div class="inapp-banner" id="inapp-banner" hidden>
+  For the smoothest experience, tap the ••• menu above and choose "Open in Browser."
+</div>
+
 <section class="hero" id="top">
   <div class="wrap">
     <img src="letsg-logo.png" alt="LetsG Trading — From Vision to Reality" class="brand-logo">
@@ -61,7 +65,7 @@
       <h2>Reserve your spot</h2>
       <p class="panel-sub">Tell us a bit about yourself. Once you're approved, we'll add you straight into our private Messenger group — that's where the signals, lessons, and conversations happen.</p>
 
-      <form id="waitlist" novalidate method="POST" action="https://script.google.com/macros/s/AKfycbymCbZfILYLqqBVta7CYa6RupA2uKaYEAQpbLf9GsQEDv1dzlsGmw4HkQBsXLFD1RBqSg/exec" target="hidden-target">
+      <form id="waitlist" novalidate method="POST" action="https://script.google.com/macros/s/AKfycbymCbZfILYLqqBVta7CYa6RupA2uKaYEAQpbLf9GsQEDv1dzlsGmw4HkQBsXLFD1RBqSg/exec">
         <div class="field">
           <label for="name">Full name</label>
           <input type="text" id="name" name="name" autocomplete="name" required>
@@ -95,8 +99,6 @@
         </button>
       </form>
     </div>
-
-    <iframe name="hidden-target" id="hidden-target" style="display:none;" title="submission target" aria-hidden="true"></iframe>
 
   </div>
 </section>
@@ -155,6 +157,15 @@ body{
   color: var(--color-ink);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+}
+
+.inapp-banner{
+  background: var(--color-navy);
+  color: #FFFFFF;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 16px;
 }
 h1,h2,h3{ margin:0; font-weight: 700; letter-spacing: -0.02em; color: var(--color-ink); }
 p{ margin:0; }
@@ -370,6 +381,14 @@ button, input, select{ width:100%; }
 
 <script>
 (function(){
+  // Detect Facebook/Messenger/Instagram in-app browsers and suggest opening in a real browser,
+  // since these embedded browsers can behave unpredictably with cross-origin form submissions.
+  var ua = navigator.userAgent || '';
+  if (/FBAN|FBAV|Instagram|Messenger/i.test(ua)) {
+    var banner = document.getElementById('inapp-banner');
+    if (banner) banner.hidden = false;
+  }
+
   document.getElementById('cta-scroll').addEventListener('click', function(e){
     e.preventDefault();
     document.getElementById('waitlist-form').scrollIntoView({ behavior: 'smooth' });
@@ -381,9 +400,6 @@ button, input, select{ width:100%; }
   var modal = document.getElementById('thankyou-modal');
   var modalTitle = document.getElementById('modal-title');
   var modalDetail = document.getElementById('modal-detail');
-  var hiddenFrame = document.getElementById('hidden-target');
-  var pendingSubmission = false;
-  var pendingValues = null;
 
   function openModal(){ modal.hidden = false; }
   function closeModal(){ modal.hidden = true; }
@@ -415,6 +431,7 @@ button, input, select{ width:100%; }
   }
 
   form.addEventListener('submit', function(e){
+    e.preventDefault();
     formError.hidden = true;
 
     var name = document.getElementById('name').value.trim();
@@ -422,28 +439,37 @@ button, input, select{ width:100%; }
     var facebook = document.getElementById('facebook').value.trim();
     var experience = document.getElementById('experience').value;
 
-    if(!validate(name, email, facebook, experience)){
-      e.preventDefault();
-      return;
-    }
+    if(!validate(name, email, facebook, experience)) return;
 
-    // Valid — let the browser submit natively into the hidden iframe (no CORS issues).
-    pendingSubmission = true;
-    pendingValues = { name: name, email: email };
     submitBtn.disabled = true;
     submitBtn.querySelector('.btn-label').textContent = 'Joining…';
-  });
 
-  hiddenFrame.addEventListener('load', function(){
-    if(!pendingSubmission) return;
-    pendingSubmission = false;
+    var body = new URLSearchParams();
+    body.append('name', name);
+    body.append('email', email);
+    body.append('facebook', facebook);
+    body.append('experience', experience);
 
-    modalTitle.textContent = "Thank you, " + pendingValues.name.split(' ')[0] + "!";
-    modalDetail.textContent = "You're on the list. Once we're ready, we'll reach out at " + pendingValues.email + " and add you to our private Messenger group — let's grind toward this together.";
-    openModal();
-    form.reset();
-    submitBtn.disabled = false;
-    submitBtn.querySelector('.btn-label').textContent = 'Join the waitlist';
+    fetch(form.action, {
+      method: 'POST',
+      mode: 'no-cors', // in-app browsers (Messenger/Facebook) block reading cross-origin responses,
+                        // so we fire the request and don't try to read the result back.
+      body: body
+    })
+    .then(function(){
+      modalTitle.textContent = "Thank you, " + name.split(' ')[0] + "!";
+      modalDetail.textContent = "You're on the list. Once we're ready, we'll reach out at " + email + " and add you to our private Messenger group — let's grind toward this together.";
+      openModal();
+      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.querySelector('.btn-label').textContent = 'Join the waitlist';
+    })
+    .catch(function(){
+      formError.hidden = false;
+      formError.textContent = "Something went wrong — please try again in a moment.";
+      submitBtn.disabled = false;
+      submitBtn.querySelector('.btn-label').textContent = 'Join the waitlist';
+    });
   });
 })();
 </script>
